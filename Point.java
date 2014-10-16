@@ -1,10 +1,14 @@
 package distance;
 
 public class Point {
-    double longitude = 0;
-    double latitude = 0;
+    protected double longitude = 0;
+    protected double latitude = 0;
         
     public Point(double longitude, double latitude){
+    	if(longitude > 180 || longitude < -180)
+    		throw new IllegalArgumentException("longitude must be +/- 180 degree");
+    	if(latitude > 90 || latitude < -90)
+    		throw new IllegalArgumentException("latitude must be +/- 90 degree");
         this.longitude = longitude;
         this.latitude = latitude;
     }
